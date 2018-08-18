@@ -16,24 +16,22 @@ output reg O3;
 output reg O4;
 input I1;
 input I2;
-//or (O1,I2, I1);
- //assign O1=I2 & I1;
 always @(I1 or I2) begin
     O1=1'b0;
     O2=1'b0;
     O3=1'b0;
     O4=1'b0;
         if ((I1 == 1'b0)&&(I2==1'b1))
-        O3=1;
+        O3=1'b1;
 
         if ((I1 == 1'b1)&&(I2==1'b0))
-        O2=1;
+        O2=1'b1;
 
         if ((I1 == 1'b1)&&(I2==1'b1))
-        O1=1;
+        O1=1'b1;
 
         if ((I1 == 1'b0)&&(I2==1'b0))
-        O4=1;
+        O4=1'b1;
 
     end
 
