@@ -43,7 +43,7 @@ $b_{3}$ & $b_{2}$ & $b_{1}$ & $b_{0}$ & - & $y_{3}$ & $y_{2}$ & $y_{1}$ & $y_{0}
 \end{table}
 
 %expresión como suma de mintérminos resultante de la tabla anterior.
-De la tabla anterior, se observa que, para expresar a :
+De la tabla anterior, se observa que:
 
 	 \begin{equation} 
   	   \left\{
@@ -77,8 +77,10 @@ $b_{2}$,$b_{3}$|$b_{0}$, $b_{1}$ & 00 & 01 & 11 & 10\\ [0.5ex]
 \hline
 \end{tabular}
 \end{table}
-Los siguientes mapas aparecerán con los valores de los mintérminos reemplazados y los grupos ya formados:
-\item $y_3$ 				%y_3
+Los siguientes mapas aparecerán con los valores de sus mintérminos reemplazados y los grupos ya formados:
+
+%y_3
+\item $y_3$ 				
 
 \begin{figure}[H]	%Karnaugh para y_3, imagen/tabla
 	\centering
@@ -87,7 +89,14 @@ Los siguientes mapas aparecerán con los valores de los mintérminos reemplazado
 	\label{fig:ej4_karnaugh_mapa_y3}
 \end{figure}
 
-\item $y_2$					%y_2
+%escribo simplificación resultante y_3
+De este mapa se puede obtener $y_3$ = $\overline{b_{3}} \cdot b_{2} +\overline{b_{3}}\cdot b_{1} 
++\overline{b_{3}} \cdot b_{0} +b_{3}\cdot \overline{b_{2} \cdot b_{1} \cdot b_{0}} $ 
+\par
+Así, $y_3$ = $\overline{b_{3}} \cdot (b_{2} + b_{1} + b_{0}) + b_{3}\cdot \overline{b_{2} \cdot b_{1} \cdot b_{0}}$ 
+
+%y_2
+\item $y_2$					
 
 \begin{figure}[H]	%Karnaugh para y_2, imagen/tabla
 	\centering
@@ -96,7 +105,14 @@ Los siguientes mapas aparecerán con los valores de los mintérminos reemplazado
 	\label{fig:ej4_karnaugh_mapa_y2}
 \end{figure}
 
-\item $y_1$					%y_1
+%escribo simplificación resultante y_2
+De este mapa se puede obtener $y_2$ = $\overline{b_{2}} \cdot b_{1} + \overline{b_{2}} \cdot b_{0} + 
+b_{2} \cdot \overline{b_{1}} \cdot \overline{b_{0}}  $ 
+\par
+Así, $y_2$ = $\overline{b_{2}} \cdot (b_{1} + b_{0}) + b_{3} + b_{2} \cdot \overline{b_{1}} \cdot \overline{b_{0}} $ 
+
+%y_1
+\item $y_1$					
 
 \begin{figure}[H]	%Karnaugh para y_1, imagen/tabla
 	\centering
@@ -105,7 +121,13 @@ Los siguientes mapas aparecerán con los valores de los mintérminos reemplazado
 	\label{fig:ej4_karnaugh_mapa_y1}
 \end{figure}
 
-\item $y_0$					%y_0
+%escribo simplificación resultante y_1
+De este mapa se puede obtener $y_1$ = $\overline{b_{1}} \cdot b_{0}  + \overline{b_{0}} \cdot b_{1}$ 
+\par
+Así, $y_1$ resulta ser la xor entre $b_{1}$ y $b_{0}$.
+
+%y_0
+\item $y_0$					
 
 
 \begin{figure}[H]	%Karnaugh para y_0, imagen/tabla
@@ -114,6 +136,11 @@ Los siguientes mapas aparecerán con los valores de los mintérminos reemplazado
 	\caption{Mapa de Karnaugh para $y_0$}
 	\label{fig:ej4_karnaugh_mapa_y0}
 \end{figure}
+
+%escribo simplificación resultante y_0
+De este mapa se puede obtener $y_0$ = $b_{0} $ 
+\par
+Así, el bit menos significativo de la entrada resulta ser el bit menos significativo de la salida (conexión directa).
 
 \end{itemize} 
 
