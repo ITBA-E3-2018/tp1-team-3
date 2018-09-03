@@ -1,0 +1,37 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500) (preloaded format=pdflatex 2018.8.5)  2 SEP 2018 23:05
+entering extended mode
+**"C:/Users/Tomas/Desktop/ITBA/7° Cuatrimestre/Electrónica 3/tp1-team-3/infor
+me/src/preamble.tex"
+
+("C:/Users/Tomas/Desktop/ITBA/7° Cuatrimestre/Electrónica 3/tp1-team-3/inform
+e/src/preamble.tex"
+LaTeX2e <2017-04-15>
+Babel <3.15> and hyphenation patterns for 75 language(s) loaded.
+
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \usepackage[T1]{
+                    fontenc}
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.2 \usepackage[T1]{
+                    fontenc}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+ 
+Here is how much of TeX's memory you used:
+ 8 strings out of 493312
+ 562 string characters out of 3129828
+ 53761 words of memory out of 3000000
+ 3655 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 5i,0n,5p,125b,14s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

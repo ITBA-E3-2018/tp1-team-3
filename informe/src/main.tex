@@ -10,33 +10,33 @@
 %hago backup del comando \input actual, y lo cambio para que cambie el path de buqueda de nuevos archivos
 %esto va a afectar a los includes de este archivo y a los del archivo del subfile, pero solo cuando compilo desde aca. Si compilo desde el subfile este cambio no sucede entonces sigue andando.
 \let\oldinput=\input 	
-\def\input#1{\oldinput{../../EJ_1/src/#1}}	
+\def\input#1{\oldinput{../../Ej1/src/Informe/#1}}	
 %agrego el archivo y despues restauro al comando original
 \subfile{ej1.tex}
 \let\input=\oldinput
 
 \let\oldinput=\input 	
-\def\input#1{\oldinput{../../EJ_2/src/#1}}	
+\def\input#1{\oldinput{../../Ej2/src/Informe/#1}}	
 \subfile{ej2.tex}
 \let\input=\oldinput
 
 \let\oldinput=\input 	
-\def\input#1{\oldinput{../../EJ_3/src/#1}}	
+\def\input#1{\oldinput{../../Ej3/src/Informe/#1}}	
 \subfile{ej3.tex}
 \let\input=\oldinput
 
 \let\oldinput=\input 	
-\def\input#1{\oldinput{../../EJ_4/src/#1}}	
+\def\input#1{\oldinput{../../Ej4/src/Informe/#1}}	
 \subfile{ej4.tex}
 \let\input=\oldinput
 
 \let\oldinput=\input 	
-\def\input#1{\oldinput{../../EJ_5/src/#1}}	
+\def\input#1{\oldinput{../../Ej5/src/Informe/#1}}	
 \subfile{ej5.tex}
 \let\input=\oldinput
 
 \let\oldinput=\input 	
-\def\input#1{\oldinput{../../EJ_6/src/#1}}	
+\def\input#1{\oldinput{../../Ej6/src/Informe/#1}}	
 \subfile{ej6.tex}
 \let\input=\oldinput
 
