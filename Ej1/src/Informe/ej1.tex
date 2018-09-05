@@ -1,6 +1,40 @@
-\documentclass[../../main.tex]{subfiles}
+\documentclass[../../../informe/src/main.tex]{subfiles}
 
 \begin{document}
 \section{Ejercicio 1}
+
+Al representar n\'umeros reales con una cantidad finita de s\'imbolos, es importante tener en cuenta las limitaciones de la forma de representaci\'on elegida. Seg\'un la cantidad de s\'imbolos y qu\'e represente cada posici\'on, quedar\'an definidos un n\'umero m\'aximo representable, uno m\'inimo, y una m\'inima diferencia entre dos n\'umeros consecutivos.\par
+
+En este ejercicio estudiaremos el rango y la resoluci\'on de n\'umeros en formato punto fijo binario. Estos dos par\'ametros se definen de la siguiente manera: \par
+
+\begin{itemize}
+	\item \underline{Rango}: diferencia entre el m\'aximo y el m\'inimo valor representable, siendo el m\'inimo no el menor en m\'odulo sino el menor n\'umero.
+	\item \underline{Resoluci\'on}: m\'inima diferencia entre dos n\'umeros consecutivos.
+\end{itemize}
+
+Para definir estos par\'ametros en punto fijo, si se esta trabajando en signado o no signado es irrelevante, puesto que esto s\'olo aplicaria un \textit{offset} de $-2^N$, donde $N$ es el n\'umero de bits de la parte entera (incluso si es $N=0$). \par
+
+Llamando $n$ al n\'umero de bits de la parte fraccionaria, resoluci\'on y rango quedan definidos como:\par
+
+\begin{equation} 
+	\label{eq: ej1-res} 
+	\mathrm{Res} = 2^{-n} 
+\end{equation}
+
+\begin{equation} 
+	\label{eq: ej1-ran}  
+	\mathrm{Ran} = 2^N - 2^{-n} = 2^N - \mathrm{Res}
+\end{equation}
+
+Estas expresiones son v\'alidas para cualquier valor de $n$ y $N$ pertenecientes a $\mathbb{N}_0$. La \'unica excepci\'on es cuando ambos valen cero, en cuyo caso no tiene ning\'un sentido el an\'alisis de un n\'umero de 0 d\'igitos binarios. Este caso se considera entonces no v\'alido.\par
+
+Se implement\'o en $C++$ que calcula rango y resoluci\'on con estas f\'ormulas, recibiendo por l\'inea de comando tres par\'ametros: signo (1 o 0), $N$ y $n$ en ese orden. S\'olo se consideran \textit{inputs} v\'alidos para estos dos \'ultimos n\'umeros enteros menores a 128 (puesto que n\'umeros mayores resultaban en $2^N = \infty$ o $2^{-n}=0$). Cualquier n\'umero con punto decimal se considera flotante, incluso si todos los d\'igitos despu\'es del mismo son 0.\par
+
+El programa imprime rango y resoluci\'on si el \textit{input} era adecuado, y \code{ERROR} si no. Para parsear la l\'inea de comandos se reutiliz\'o codigo escrito para la materia \textit{22.08 - Algoritmos y estructura de datos}. En cuanto a la implementaci\'on de las ecuaciones \ref{eq: ej1-res} y \ref{eq: ej1-ran}, se utiliz\'o la funci\'on est'andar de $C++$ de potencia, puesto que el \textit{shifting} s\'olo funciona si ni $2^N$  ni $2^n$ exceden el tama\~no de un \textit{int}.\par
+
+El programa respondi\'o satisfactoriamente al siguiente banco de pruebas:
+
+
+  
 
 \end{document}
