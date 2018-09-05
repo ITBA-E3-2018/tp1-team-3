@@ -34,7 +34,26 @@ El programa imprime rango y resoluci\'on si el \textit{input} era adecuado, y \c
 
 El programa respondi\'o satisfactoriamente al siguiente banco de pruebas:
 
+\begin{figure} [H]
+	\centering
+	\begin{tabular}{l}
+        	\code{\{"bad arguments", "dont", "write--", "909WORDS!"\},	}\\
+        	\code{\{"bad sign", "2", "4", "4"\}, 					}\\
+        	\code{\{"negative size int", "1", "-4", "3"\},				}\\
+	\code{\{"negative size frac", "0", "8", "-1"\}, 				}\\
+        	\code{\{"negative sign", "-55", "4", "5"\},				}\\
+        	\code{\{"float in size int", "0", "4.4", "3"\},				}\\
+        	\code{\{"float in size frac", "1", "8", "1.5"\}, 				}\\
+        	\code{\{"too large size int", "0", "128", "5"\},				}\\
+        	\code{\{"too large size frac", "1", "2", "128"\},				}\\
+        	\code{\{"all zeros", "0", "0", "0"\},					}\\
+        	\code{\{"largest size", "1", "127", "127"\},				}\\
+        	\code{\{"zero int", "0", "0", "21"\},					}\\
+        	\code{\{"zero frac", "1", "12", "0"\},					}\\
+        	\end{tabular}
+        	\caption{banco de pruebas.}
+\end{figure}
 
-  
+Tambi\'en se comprob\'o que se devolviese \code{ERROR} para una cantidad no v\'alida de argumentos.\par  
 
 \end{document}
