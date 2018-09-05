@@ -30,6 +30,7 @@
  				\hline
   	\end{tabular}
 	\end{table} \par
+	
 	%expresion en términos de los bits de entrada
 	Expandiendo la expresión, f =$ (d+c+b+a)\cdot (d+c+b+\overline{a})\cdot (d+\overline{c}+b+\overline{a})
 	\cdot (d+\overline{c}+\overline{b}+\overline{a})\cdot (\overline{d}+c+b+a)\cdot
@@ -37,32 +38,30 @@
 	 (\overline{d}+\overline{c}+\overline{b}+\overline{a})$
 	 \par
 	 %primera simplificación - Combining 14.b
-	 Agrupando a los maxtérminos anteriores de a dos y en orden, aplicando la propiedad 14.b del álgebra de Boole de la página del libro ''Fundamentals of Digital Logic with Verilog Design'' propuesto por la cátedra, la expresión queda simplificada a: \par
-	 f =$ (d+c+b)\cdot (d+\overline{c}+\overline{a})\cdot (\overline{d}+c+a)\cdot (\overline{d}+\overline{c}+\overline{a})
-	\par
+	 Agrupando a los maxtérminos anteriores de a dos y en orden, aplicando la propiedad 14.b del álgebra de Boole de la página del 			libro ''Fundamentals of Digital Logic with Verilog Design'' propuesto por la cátedra, la expresión queda simplificada a: \par
+	 f =$ (d+c+b)\cdot (d+\overline{c}+\overline{a})\cdot (\overline{d}+c+a)\cdot (\overline{d}+\overline{c}+\overline{a})$\par
 	Luego, aplicando los siguientes cambios de variable y la propiedad 17.a del libro:
 	 	\begin{equation}
   	  \left\{
 	  	\begin{array}{ll}
 		 			\mathrm{y} = \mathrm{c + b} \\
 			 		\mathrm{z} = \mathrm{\overline{c} + \overline{a}} \\
-		 			\mathrm{y^'} = \mathrm{c + a} \\
-			 		\mathrm{z^'} = \mathrm{\overline{c} + \overline{b}} \\			 		
+		 			\mathrm{y^{'}} = \mathrm{c + a} \\
+			 		\mathrm{z^{'}} = \mathrm{\overline{c} + \overline{b}} \\			 		
 	    \end{array}
 	    \right.
  		\end{equation}
- 	f =$ (d + y\cdot z)\cdot (\overline{d} + y^'\cdot z^')$
+ 	f =$ (d + y\cdot z)\cdot (\overline{d} + y^{'}\cdot z^{'})$ \par
 	Aplicamos propiedad distributiva y de nuevo la propiedad 17.a para llegar a:
 	\par
-	f =$ d\cdot y^'\cdot z^' + \overline{d}\cdot y\cdot z + y^'\cdot z^'\cdot y\cdot z$
+	f =$ d\cdot y^{'}\cdot z^{'} + \overline{d}\cdot y\cdot z + y^{'}\cdot z^{'}\cdot y\cdot z$
 	\par
-	f =$ d\cdot y^'\cdot z^' + \overline{d}\cdot y\cdot z$
+	f =$ d\cdot y^{'}\cdot z^{'} + \overline{d}\cdot y\cdot z$
 	\par
-	Volviendo a las variables originales: 
-	\par
+	Volviendo a las variables originales: \par
+	
 	f =$ a\cdot d\cdot ()+ \overline{a}\overline{d}\cdot(c + b) + d\cdot c \cdot \overline{b} + 
-	\overline{d}\cdot \overline{c} \cdot b$
-	\par
+	\overline{d}\cdot \overline{c} \cdot b$\par
 	que resulta ser la mínima expresión de f.
 	
 	
