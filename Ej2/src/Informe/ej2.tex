@@ -3,7 +3,7 @@
 \begin{document}
 	\section{Ejercicio 2}
 	Se tiene la siguiente expresión en maxtérminos $f(d;c;b;a) = \prod_{}^{}(M_{0};M_{1};M_{5};M_{7};M_{8};M_{10};M_{14};M_{15})$ \par
-	De aquí se desprende la siguiente tabla de verdad, de la cual se deparán las expresiones completas en función de las entradas.
+	De aquí se desprende la siguiente tabla de verdad, de la cual se derivan las expresiones completas en función de las entradas.
 	%tabla de verdad para las entradas.
 	\begin{table}[H]
 		\centering
@@ -37,37 +37,71 @@
 	 (\overline{d}+c+\overline{b}+a)\cdot (\overline{d}+\overline{c}+\overline{b}+a)\cdot
 	 (\overline{d}+\overline{c}+\overline{b}+\overline{a})$
 	 \par
-	 %primera simplificación - Combining 14.b
-	 Agrupando a los maxtérminos anteriores de a dos y en orden, aplicando la propiedad 14.b del álgebra de Boole de la página del 			libro ''Fundamentals of Digital Logic with Verilog Design'' propuesto por la cátedra, la expresión queda simplificada a: \par
-	 f =$ (d+c+b)\cdot (d+\overline{c}+\overline{a})\cdot (\overline{d}+c+a)\cdot (\overline{d}+\overline{c}+\overline{a})$\par
-	Luego, aplicando los siguientes cambios de variable y la propiedad 17.a del libro:
-	 	\begin{equation}
-  	  \left\{
-	  	\begin{array}{ll}
-		 			\mathrm{y} = \mathrm{c + b} \\
-			 		\mathrm{z} = \mathrm{\overline{c} + \overline{a}} \\
-		 			\mathrm{y^{'}} = \mathrm{c + a} \\
-			 		\mathrm{z^{'}} = \mathrm{\overline{c} + \overline{b}} \\			 		
-	    \end{array}
-	    \right.
- 		\end{equation}
- 	f =$ (d + y\cdot z)\cdot (\overline{d} + y^{'}\cdot z^{'})$ \par
-	Aplicamos propiedad distributiva y de nuevo la propiedad 17.a para llegar a:
-	\par
-	f =$ d\cdot y^{'}\cdot z^{'} + \overline{d}\cdot y\cdot z + y^{'}\cdot z^{'}\cdot y\cdot z$
-	\par
-	f =$ d\cdot y^{'}\cdot z^{'} + \overline{d}\cdot y\cdot z$
-	\par
-	Volviendo a las variables originales: \par
+	 \begin{enumerate}
+	 %simplifación por álgebra booleana:
+	 	\item Simplificamos mediante el uso del álgebrea booleana: \par
+	 	
+	 	%primera simplificación - Combining 14.b
+	 		Agrupando a los maxtérminos anteriores de a dos y en orden, aplicando la propiedad 14.b del álgebra de Boole de la página del 				libro ''Fundamentals of Digital Logic with Verilog Design'' propuesto por la cátedra, la expresión queda simplificada a: \par
+	 		f =$ (d+c+b)\cdot (d+\overline{c}+\overline{a})\cdot (\overline{d}+c+a)\cdot (\overline{d}+\overline{c}+\overline{b})$\par
+			Luego, aplicando los siguientes cambios de variable y la propiedad 17.a del libro:
+	 			\begin{equation}
+  		  	\left\{
+	  			\begin{array}{ll}
+		 					\mathrm{y} = \mathrm{c + b} \\
+					 		\mathrm{z} = \mathrm{\overline{c} + \overline{a}} \\
+		 					\mathrm{y^{'}} = \mathrm{c + a} \\
+					 		\mathrm{z^{'}} = \mathrm{\overline{c} + \overline{b}} \\			 		
+	  		  \end{array}
+	 		   \right.
+ 				\end{equation}
+ 			f =$ (d + y\cdot z)\cdot (\overline{d} + y^{'}\cdot z^{'})$ \par
+			Aplicamos propiedad distributiva y de nuevo la propiedad 17.a para llegar a:
+			\par
+			f =$ d\cdot y^{'}\cdot z^{'} + \overline{d}\cdot y\cdot z + y^{'}\cdot z^{'}\cdot y\cdot z$
+			\par
+			f =$ d\cdot y^{'}\cdot z^{'} + \overline{d}\cdot y\cdot z$
+			\par
+			Volviendo a las variables originales: \par
 	
-	f =$ a\cdot d\cdot ()+ \overline{a}\overline{d}\cdot(c + b) + d\cdot c \cdot \overline{b} + 
-	\overline{d}\cdot \overline{c} \cdot b$\par
-	que resulta ser la mínima expresión de f.
-	
-	
-	 
-		  
-	  
+			f =$ a\cdot d\cdot ()+ \overline{a}\overline{d}\cdot(c + b) + d\cdot c \cdot \overline{b} + 
+			\overline{d}\cdot \overline{c} \cdot b$\par
+			que resulta ser la mínima expresión de f. \par
+
+			
+	%simplifación por álgebra booleana:
+		\item Simplificamos mediante el uso de mapas de Karnaugh: \par
+
+ 			\begin{table}[H] %Karnaugh general
+				\centering
+ 				\begin{tabular}{||c c c c c||} 
+ 					\hline
+					$c$,$d$|$a$, $b$ & 00 & 01 & 11 & 10\\ [0.5ex] 
+ 					\hline\hline
+					00 & $M_{0}$ & $M_{2}$ & $M_{3}$ & $M_{1}$\\
+					01 & $M_{8}$ & $M_{10}$ & $M_{11}$ & $M_{9}$\\
+					11 & $M_{12}$ & $M_{14}$ & $M_{15}$ & $M_{13}$\\
+					10 & $M_{4}$ & $M_{6}$ & $M_{7}$ & $M_{5}$\\[1ex] 
+					\hline
+				\end{tabular}
+			\end{table}
+			\begin{itemize}
+				\item $f$
+				\begin{table}[H] %Karnaugh generalizado para f en específico
+					\centering
+ 					\begin{tabular}{||c c c c c||} 
+ 						\hline
+						$c$,$d$|$a$, $b$ & 00 & 01 & 11 & 10\\ [0.5ex] 
+ 						\hline\hline
+						00 & 0 & 1 & 1 & 0 \\
+						01 & 0 & 0 & 1 & 1 \\
+						11 & 1 & 0 & 0 & 1 \\
+						10 & 1 & 1 & 0 & 0 \\[1ex] 
+						\hline
+					\end{tabular}
+				\end{table}
+			\end{itemize}
+	 \end{enumerate}
 \end{document}
 
 
