@@ -1,0 +1,4 @@
+y3 = b3' (b2 + b1 + b0) + b3 b2' b1' b0'
+y2 = b2' (bo + b1) + b2 b1' b0'
+y1 = b1' bo + bo' b1 
+yo = bo

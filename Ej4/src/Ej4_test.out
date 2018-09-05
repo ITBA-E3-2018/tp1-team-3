@@ -1,0 +1,200 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x1befce0 .scope module, "test_compA2" "test_compA2" 2 1;
+ .timescale 0 0;
+v0x1c025d0_0 .var/i "contador", 31 0;
+v0x1c02690_0 .var "in", 3 0;
+v0x1c02740_0 .net "out", 3 0, v0x1c02530_0; 1 drivers
+S_0x1befdd0 .scope module, "my_compA2" "compA2" 2 6, 3 1, S_0x1befce0;
+ .timescale 0 0;
+v0x1bb9690_0 .net "b", 3 0, v0x1c02690_0; 1 drivers
+v0x1c02530_0 .var "y", 3 0;
+E_0x1bccf60 .event edge, v0x1bb9690_0;
+    .scope S_0x1befdd0;
+T_0 ;
+    %wait E_0x1bccf60;
+    %ix/load 1, 3, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.0, 4;
+    %load/x1p 8, v0x1bb9690_0, 1;
+    %jmp T_0.1;
+T_0.0 ;
+    %mov 8, 2, 1;
+T_0.1 ;
+; Save base=8 wid=1 in lookaside.
+    %inv 8, 1;
+    %ix/load 1, 2, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.2, 4;
+    %load/x1p 9, v0x1bb9690_0, 1;
+    %jmp T_0.3;
+T_0.2 ;
+    %mov 9, 2, 1;
+T_0.3 ;
+; Save base=9 wid=1 in lookaside.
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.4, 4;
+    %load/x1p 10, v0x1bb9690_0, 1;
+    %jmp T_0.5;
+T_0.4 ;
+    %mov 10, 2, 1;
+T_0.5 ;
+; Save base=10 wid=1 in lookaside.
+    %or 9, 10, 1;
+    %load/v 10, v0x1bb9690_0, 1; Only need 1 of 4 bits
+; Save base=10 wid=1 in lookaside.
+    %or 9, 10, 1;
+    %and 8, 9, 1;
+    %ix/load 1, 3, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.6, 4;
+    %load/x1p 9, v0x1bb9690_0, 1;
+    %jmp T_0.7;
+T_0.6 ;
+    %mov 9, 2, 1;
+T_0.7 ;
+; Save base=9 wid=1 in lookaside.
+    %ix/load 1, 2, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.8, 4;
+    %load/x1p 10, v0x1bb9690_0, 1;
+    %jmp T_0.9;
+T_0.8 ;
+    %mov 10, 2, 1;
+T_0.9 ;
+; Save base=10 wid=1 in lookaside.
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.10, 4;
+    %load/x1p 10, v0x1bb9690_0, 1;
+    %jmp T_0.11;
+T_0.10 ;
+    %mov 10, 2, 1;
+T_0.11 ;
+; Save base=10 wid=1 in lookaside.
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %load/v 10, v0x1bb9690_0, 1; Only need 1 of 4 bits
+; Save base=10 wid=1 in lookaside.
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 3, 0;
+    %set/x0 v0x1c02530_0, 8, 1;
+    %ix/load 1, 2, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.12, 4;
+    %load/x1p 8, v0x1bb9690_0, 1;
+    %jmp T_0.13;
+T_0.12 ;
+    %mov 8, 2, 1;
+T_0.13 ;
+; Save base=8 wid=1 in lookaside.
+    %inv 8, 1;
+    %load/v 9, v0x1bb9690_0, 1; Only need 1 of 4 bits
+; Save base=9 wid=1 in lookaside.
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.14, 4;
+    %load/x1p 10, v0x1bb9690_0, 1;
+    %jmp T_0.15;
+T_0.14 ;
+    %mov 10, 2, 1;
+T_0.15 ;
+; Save base=10 wid=1 in lookaside.
+    %or 9, 10, 1;
+    %and 8, 9, 1;
+    %ix/load 1, 2, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.16, 4;
+    %load/x1p 9, v0x1bb9690_0, 1;
+    %jmp T_0.17;
+T_0.16 ;
+    %mov 9, 2, 1;
+T_0.17 ;
+; Save base=9 wid=1 in lookaside.
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.18, 4;
+    %load/x1p 10, v0x1bb9690_0, 1;
+    %jmp T_0.19;
+T_0.18 ;
+    %mov 10, 2, 1;
+T_0.19 ;
+; Save base=10 wid=1 in lookaside.
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %load/v 10, v0x1bb9690_0, 1; Only need 1 of 4 bits
+; Save base=10 wid=1 in lookaside.
+    %inv 10, 1;
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 2, 0;
+    %set/x0 v0x1c02530_0, 8, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.20, 4;
+    %load/x1p 8, v0x1bb9690_0, 1;
+    %jmp T_0.21;
+T_0.20 ;
+    %mov 8, 2, 1;
+T_0.21 ;
+; Save base=8 wid=1 in lookaside.
+    %inv 8, 1;
+    %load/v 9, v0x1bb9690_0, 1; Only need 1 of 4 bits
+; Save base=9 wid=1 in lookaside.
+    %and 8, 9, 1;
+    %load/v 9, v0x1bb9690_0, 1; Only need 1 of 4 bits
+; Save base=9 wid=1 in lookaside.
+    %inv 9, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.22, 4;
+    %load/x1p 10, v0x1bb9690_0, 1;
+    %jmp T_0.23;
+T_0.22 ;
+    %mov 10, 2, 1;
+T_0.23 ;
+; Save base=10 wid=1 in lookaside.
+    %and 9, 10, 1;
+    %or 8, 9, 1;
+    %ix/load 0, 1, 0;
+    %set/x0 v0x1c02530_0, 8, 1;
+    %load/v 8, v0x1bb9690_0, 1; Only need 1 of 4 bits
+; Save base=8 wid=1 in lookaside.
+    %ix/load 0, 0, 0;
+    %set/x0 v0x1c02530_0, 8, 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x1befce0;
+T_1 ;
+    %set/v v0x1c025d0_0, 0, 32;
+T_1.0 ;
+    %load/v 8, v0x1c025d0_0, 32;
+   %cmpi/s 8, 16, 32;
+    %jmp/0xz T_1.1, 5;
+    %load/v 8, v0x1c025d0_0, 32;
+    %set/v v0x1c02690_0, 8, 4;
+    %delay 1, 0;
+    %vpi_call 2 15 "$display", "La entrada es %d%d%d%d \012", &PV<v0x1c02690_0, 3, 1>, &PV<v0x1c02690_0, 2, 1>, &PV<v0x1c02690_0, 1, 1>, &PV<v0x1c02690_0, 0, 1>;
+    %vpi_call 2 16 "$display", "La salida es %d%d%d%d \012", &PV<v0x1c02740_0, 3, 1>, &PV<v0x1c02740_0, 2, 1>, &PV<v0x1c02740_0, 1, 1>, &PV<v0x1c02740_0, 0, 1>;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 8, v0x1c025d0_0, 32;
+    %set/v v0x1c025d0_0, 8, 32;
+    %jmp T_1.0;
+T_1.1 ;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "ej4t_test.v";
+    "ej4.v";
