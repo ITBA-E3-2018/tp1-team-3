@@ -1,6 +1,17 @@
-\documentclass[../../main.tex]{subfiles}
+\documentclass[../../../informe/src/main.tex]{subfiles}
 
 \begin{document}
 \section{Ejercicio 5}
+
+El formato BCD (de sus siglas en ingl\'es \textit{binary coded decimal}, es decir decimal codificado en binario) es aqu\'el que representa un d\'igito decimal por cada \textit{nybble} binario. Si bien esto es menos eficiente que la representaci\'on binaria en cuanto a que quedan 6 combinaciones de \textit{bits} sin usar por cada 16 (lo que normalmente ser\'ian los n\'umeros del 10 al 15), simplifica la conversi\'on de binario a decimal. A su vez, permite mayor precisi\'on en algunos casos: por ejemplo, el n\'umero $0.1_{10}$ no puede re presentarse de forma exacta en binario con ninguna cantidad de \textit{bits}, mientras que s\'i se puede con una convenci\'on adecuada de BCD.\par
+
+En este ejercicio se implement\'o un sumador de n\'umeros BCD con dos entradas y dos salidas de un d\'igito cada una: dos n\'umeros del 1 al 9 en la entrada, y las decenas y unidades de su suma en la salida. Cada d\'igito consta de cuatro \textit{bits}. \par
+
+Para expresar el resultado en BCD, se utiliz\'o un registro extra de 5 \textit{bits} para calcular la suma, de forma tal que el resultado siempre pueda quedar contenido en \'el (puesto que el m\'aximo \textit{input} es $9+9 = 18 < 31 = 2^5-1$, e incluso si tomamos casos no v\'alidos $15+15<31$). Si este resultado obtenido es menor que 10, se pone un cero en las decenas y la suma en las unidades. De lo contrario, las decenas valen 1, y las unidades, la suma menos 10.\par
+
+A su vez, puesto que tener input de valores entre el 10 y el 15 no es v\'alido a pesar de que los 4 \textit{bits} lo permiten, si esta situaci\'on ocurre se indica error seteando en 1 todos los \textit{bits} de la salida, de forma tal que no pueda interpretarse como un n\'umero en BCD. \par
+
+Se verific\'o que funcionara adecuadamente con un banco de pruebas que hace todas las combinaciones posibles de entradas, tanto v\'alidas como no v\'alidas.\par
+
 
 \end{document}
