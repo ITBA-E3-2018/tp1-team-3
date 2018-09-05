@@ -1,0 +1,234 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0xb75ca0 .scope module, "ej3TestBench" "ej3TestBench" 2 4;
+ .timescale 0 0;
+v0xba5f60_0 .net "Do0", 0 0, v0xba3fd0_0; 1 drivers
+v0xba6000_0 .net "Do1", 0 0, v0xba4070_0; 1 drivers
+v0xba6080_0 .net "Do2", 0 0, v0xba4120_0; 1 drivers
+v0xba6130_0 .net "Do3", 0 0, v0xba41c0_0; 1 drivers
+v0xba6210_0 .var "ID_0", 0 0;
+v0xba62c0_0 .var "ID_1", 0 0;
+v0xba6380_0 .var "Im2_0", 0 0;
+v0xba6430_0 .var "Im2_1", 0 0;
+v0xba6530_0 .var "Im4_0", 0 0;
+v0xba6600_0 .var "Im4_1", 0 0;
+v0xba66e0_0 .var "Im4_2", 0 0;
+v0xba67b0_0 .var "Im4_3", 0 0;
+v0xba68f0_0 .var "Sm2_1", 0 0;
+v0xba6970_0 .var "Sm4_0", 0 0;
+v0xba6ac0_0 .var "Sm4_1", 0 0;
+v0xba6b40_0 .net "Ym2", 0 0, L_0xba6ea0; 1 drivers
+v0xba69f0_0 .net "Ym4", 0 0, L_0xba77e0; 1 drivers
+S_0xba5af0 .scope module, "m2" "mux2" 2 17, 3 9, S_0xb75ca0;
+ .timescale 0 0;
+L_0xba6680 .functor AND 1, v0xba68f0_0, v0xba6430_0, C4<1>, C4<1>;
+L_0xba6d40 .functor NOT 1, v0xba68f0_0, C4<0>, C4<0>, C4<0>;
+L_0xba6da0 .functor AND 1, L_0xba6d40, v0xba6380_0, C4<1>, C4<1>;
+L_0xba6ea0 .functor OR 1, L_0xba6680, L_0xba6da0, C4<0>, C4<0>;
+v0xba5be0_0 .net "S0", 0 0, v0xba68f0_0; 1 drivers
+v0xba5c60_0 .net "X0", 0 0, v0xba6380_0; 1 drivers
+v0xba5ce0_0 .net "X1", 0 0, v0xba6430_0; 1 drivers
+v0xba5d60_0 .alias "Y", 0 0, v0xba6b40_0;
+v0xba5de0_0 .net "j", 0 0, L_0xba6680; 1 drivers
+v0xba5e60_0 .net "k", 0 0, L_0xba6da0; 1 drivers
+v0xba5ee0_0 .net "n", 0 0, L_0xba6d40; 1 drivers
+S_0xba42a0 .scope module, "m4" "mux4" 2 18, 4 13, S_0xb75ca0;
+ .timescale 0 0;
+v0xba5410_0 .net "S0", 0 0, v0xba6970_0; 1 drivers
+v0xba54b0_0 .net "S1", 0 0, v0xba6ac0_0; 1 drivers
+v0xba5580_0 .net "X0", 0 0, v0xba6530_0; 1 drivers
+v0xba5600_0 .net "X1", 0 0, v0xba6600_0; 1 drivers
+v0xba56e0_0 .net "X2", 0 0, v0xba66e0_0; 1 drivers
+v0xba5790_0 .net "X3", 0 0, v0xba67b0_0; 1 drivers
+v0xba5850_0 .alias "Y", 0 0, v0xba69f0_0;
+v0xba5900_0 .net "Y1", 0 0, L_0xba71a0; 1 drivers
+v0xba5a20_0 .net "Y2", 0 0, L_0xba7410; 1 drivers
+S_0xba4ea0 .scope module, "mux_1" "mux2" 4 20, 3 9, S_0xba42a0;
+ .timescale 0 0;
+L_0xba6ff0 .functor AND 1, v0xba6ac0_0, v0xba6600_0, C4<1>, C4<1>;
+L_0xba70e0 .functor NOT 1, v0xba6ac0_0, C4<0>, C4<0>, C4<0>;
+L_0xba7140 .functor AND 1, L_0xba70e0, v0xba6530_0, C4<1>, C4<1>;
+L_0xba71a0 .functor OR 1, L_0xba6ff0, L_0xba7140, C4<0>, C4<0>;
+v0xba4f90_0 .alias "S0", 0 0, v0xba54b0_0;
+v0xba5030_0 .alias "X0", 0 0, v0xba5580_0;
+v0xba50b0_0 .alias "X1", 0 0, v0xba5600_0;
+v0xba5150_0 .alias "Y", 0 0, v0xba5900_0;
+v0xba5230_0 .net "j", 0 0, L_0xba6ff0; 1 drivers
+v0xba52b0_0 .net "k", 0 0, L_0xba7140; 1 drivers
+v0xba5370_0 .net "n", 0 0, L_0xba70e0; 1 drivers
+S_0xba4920 .scope module, "mux_2" "mux2" 4 21, 3 9, S_0xba42a0;
+ .timescale 0 0;
+L_0xba72a0 .functor AND 1, v0xba6ac0_0, v0xba67b0_0, C4<1>, C4<1>;
+L_0xba7300 .functor NOT 1, v0xba6ac0_0, C4<0>, C4<0>, C4<0>;
+L_0xba7360 .functor AND 1, L_0xba7300, v0xba66e0_0, C4<1>, C4<1>;
+L_0xba7410 .functor OR 1, L_0xba72a0, L_0xba7360, C4<0>, C4<0>;
+v0xba4a10_0 .alias "S0", 0 0, v0xba54b0_0;
+v0xba4ad0_0 .alias "X0", 0 0, v0xba56e0_0;
+v0xba4b70_0 .alias "X1", 0 0, v0xba5790_0;
+v0xba4c10_0 .alias "Y", 0 0, v0xba5a20_0;
+v0xba4cc0_0 .net "j", 0 0, L_0xba72a0; 1 drivers
+v0xba4d40_0 .net "k", 0 0, L_0xba7360; 1 drivers
+v0xba4e00_0 .net "n", 0 0, L_0xba7300; 1 drivers
+S_0xba4390 .scope module, "mux_3" "mux2" 4 23, 3 9, S_0xba42a0;
+ .timescale 0 0;
+L_0xba7510 .functor AND 1, v0xba6970_0, L_0xba7410, C4<1>, C4<1>;
+L_0xba7600 .functor NOT 1, v0xba6970_0, C4<0>, C4<0>, C4<0>;
+L_0xba76f0 .functor AND 1, L_0xba7600, L_0xba71a0, C4<1>, C4<1>;
+L_0xba77e0 .functor OR 1, L_0xba7510, L_0xba76f0, C4<0>, C4<0>;
+v0xba4480_0 .alias "S0", 0 0, v0xba5410_0;
+v0xba4540_0 .alias "X0", 0 0, v0xba5900_0;
+v0xba45e0_0 .alias "X1", 0 0, v0xba5a20_0;
+v0xba4680_0 .alias "Y", 0 0, v0xba69f0_0;
+v0xba4700_0 .net "j", 0 0, L_0xba7510; 1 drivers
+v0xba47a0_0 .net "k", 0 0, L_0xba76f0; 1 drivers
+v0xba4880_0 .net "n", 0 0, L_0xba7600; 1 drivers
+S_0xb75d90 .scope module, "dec" "decoder" 2 19, 5 12, S_0xb75ca0;
+ .timescale 0 0;
+v0xb783c0_0 .net "I1", 0 0, v0xba6210_0; 1 drivers
+v0xba3f30_0 .net "I2", 0 0, v0xba62c0_0; 1 drivers
+v0xba3fd0_0 .var "O1", 0 0;
+v0xba4070_0 .var "O2", 0 0;
+v0xba4120_0 .var "O3", 0 0;
+v0xba41c0_0 .var "O4", 0 0;
+E_0xb6c0c0 .event edge, v0xba3f30_0, v0xb783c0_0;
+    .scope S_0xb75d90;
+T_0 ;
+    %wait E_0xb6c0c0;
+    %set/v v0xba3fd0_0, 0, 1;
+    %set/v v0xba4070_0, 0, 1;
+    %set/v v0xba4120_0, 0, 1;
+    %set/v v0xba41c0_0, 0, 1;
+    %load/v 8, v0xb783c0_0, 1;
+    %cmpi/u 8, 0, 1;
+    %mov 8, 4, 1;
+    %load/v 9, v0xba3f30_0, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_0.0, 8;
+    %set/v v0xba4120_0, 1, 1;
+T_0.0 ;
+    %load/v 8, v0xb783c0_0, 1;
+    %load/v 9, v0xba3f30_0, 1;
+    %cmpi/u 9, 0, 1;
+    %mov 9, 4, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_0.2, 8;
+    %set/v v0xba4070_0, 1, 1;
+T_0.2 ;
+    %load/v 8, v0xb783c0_0, 1;
+    %load/v 9, v0xba3f30_0, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_0.4, 8;
+    %set/v v0xba3fd0_0, 1, 1;
+T_0.4 ;
+    %load/v 8, v0xb783c0_0, 1;
+    %cmpi/u 8, 0, 1;
+    %mov 8, 4, 1;
+    %load/v 9, v0xba3f30_0, 1;
+    %cmpi/u 9, 0, 1;
+    %mov 9, 4, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_0.6, 8;
+    %set/v v0xba41c0_0, 1, 1;
+T_0.6 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0xb75ca0;
+T_1 ;
+    %vpi_call 2 24 "$display", "Test Bench Decoder 4 salidas";
+    %set/v v0xba6210_0, 0, 1;
+    %set/v v0xba62c0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 29 "$display", "Input0:%b Input1:%b Output: %b | %b | %b | %b ", v0xba6210_0, v0xba62c0_0, v0xba5f60_0, v0xba6000_0, v0xba6080_0, v0xba6130_0;
+    %set/v v0xba6210_0, 0, 1;
+    %set/v v0xba62c0_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 33 "$display", "Input0:%b Input1:%b Output: %b | %b | %b | %b ", v0xba6210_0, v0xba62c0_0, v0xba5f60_0, v0xba6000_0, v0xba6080_0, v0xba6130_0;
+    %set/v v0xba6210_0, 1, 1;
+    %set/v v0xba62c0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 37 "$display", "Input0:%b Input1:%b Output: %b | %b | %b | %b ", v0xba6210_0, v0xba62c0_0, v0xba5f60_0, v0xba6000_0, v0xba6080_0, v0xba6130_0;
+    %set/v v0xba6210_0, 1, 1;
+    %set/v v0xba62c0_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 41 "$display", "Input0:%b Input1:%b Output: %b | %b | %b | %b ", v0xba6210_0, v0xba62c0_0, v0xba5f60_0, v0xba6000_0, v0xba6080_0, v0xba6130_0;
+    %vpi_call 2 43 "$display", "Test Bench Mux 2 salidas";
+    %set/v v0xba68f0_0, 0, 1;
+    %set/v v0xba6380_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 47 "$display", "Input0:%b Input1:%b Select:%b Output:%b", v0xba6380_0, v0xba6430_0, v0xba68f0_0, v0xba6b40_0;
+    %set/v v0xba68f0_0, 0, 1;
+    %set/v v0xba6380_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 51 "$display", "Input0:%b Input1:%b Select:%b Output:%b", v0xba6380_0, v0xba6430_0, v0xba68f0_0, v0xba6b40_0;
+    %load/v 8, v0xba6430_0, 1;
+    %set/v v0xba6380_0, 8, 1;
+    %set/v v0xba68f0_0, 1, 1;
+    %set/v v0xba6430_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 56 "$display", "Input0:%b Input1:%b Select:%b Output:%b", v0xba6380_0, v0xba6430_0, v0xba68f0_0, v0xba6b40_0;
+    %set/v v0xba68f0_0, 1, 1;
+    %set/v v0xba6430_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 60 "$display", "Input0:%b Input1:%b Select:%b Output:%b", v0xba6380_0, v0xba6430_0, v0xba68f0_0, v0xba6b40_0;
+    %vpi_call 2 63 "$display", "Test Bench Mux 4 salidas";
+    %set/v v0xba6970_0, 0, 1;
+    %set/v v0xba6ac0_0, 0, 1;
+    %set/v v0xba6530_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 69 "$display", "Input0:%b Input1:%b Input2:%b Input3:%b Select0:%b Select1:%b Output:%b", v0xba6530_0, v0xba6600_0, v0xba66e0_0, v0xba67b0_0, v0xba6970_0, v0xba6ac0_0, v0xba69f0_0;
+    %set/v v0xba6970_0, 0, 1;
+    %set/v v0xba6ac0_0, 0, 1;
+    %set/v v0xba6530_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 75 "$display", "Input0:%b Input1:%b Input2:%b Input3:%b Select0:%b Select1:%b Output:%b", v0xba6530_0, v0xba6600_0, v0xba66e0_0, v0xba67b0_0, v0xba6970_0, v0xba6ac0_0, v0xba69f0_0;
+    %load/v 8, v0xba6600_0, 1;
+    %set/v v0xba6530_0, 8, 1;
+    %set/v v0xba6970_0, 0, 1;
+    %set/v v0xba6ac0_0, 1, 1;
+    %set/v v0xba6600_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 83 "$display", "Input0:%b Input1:%b Input2:%b Input3:%b Select0:%b Select1:%b Output:%b", v0xba6530_0, v0xba6600_0, v0xba66e0_0, v0xba67b0_0, v0xba6970_0, v0xba6ac0_0, v0xba69f0_0;
+    %set/v v0xba6970_0, 0, 1;
+    %set/v v0xba6ac0_0, 1, 1;
+    %set/v v0xba6600_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 89 "$display", "Input0:%b Input1:%b Input2:%b Input3:%b Select0:%b Select1:%b Output:%b", v0xba6530_0, v0xba6600_0, v0xba66e0_0, v0xba67b0_0, v0xba6970_0, v0xba6ac0_0, v0xba69f0_0;
+    %load/v 8, v0xba66e0_0, 1;
+    %set/v v0xba6600_0, 8, 1;
+    %set/v v0xba6970_0, 1, 1;
+    %set/v v0xba6ac0_0, 0, 1;
+    %set/v v0xba66e0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 97 "$display", "Input0:%b Input1:%b Input2:%b Input3:%b Select0:%b Select1:%b Output:%b", v0xba6530_0, v0xba6600_0, v0xba66e0_0, v0xba67b0_0, v0xba6970_0, v0xba6ac0_0, v0xba69f0_0;
+    %set/v v0xba6970_0, 1, 1;
+    %set/v v0xba6ac0_0, 0, 1;
+    %set/v v0xba66e0_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 103 "$display", "Input0:%b Input1:%b Input2:%b Input3:%b Select0:%b Select1:%b Output:%b", v0xba6530_0, v0xba6600_0, v0xba66e0_0, v0xba67b0_0, v0xba6970_0, v0xba6ac0_0, v0xba69f0_0;
+    %load/v 8, v0xba67b0_0, 1;
+    %set/v v0xba66e0_0, 8, 1;
+    %set/v v0xba6970_0, 1, 1;
+    %set/v v0xba6ac0_0, 1, 1;
+    %set/v v0xba67b0_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 110 "$display", "Input0:%b Input1:%b Input2:%b Input3:%b Select0:%b Select1:%b Output:%b", v0xba6530_0, v0xba6600_0, v0xba66e0_0, v0xba67b0_0, v0xba6970_0, v0xba6ac0_0, v0xba69f0_0;
+    %set/v v0xba6970_0, 1, 1;
+    %set/v v0xba6ac0_0, 1, 1;
+    %set/v v0xba67b0_0, 1, 1;
+    %delay 1, 0;
+    %vpi_call 2 115 "$display", "Input0:%b Input1:%b Input2:%b Input3:%b Select0:%b Select1:%b Output:%b", v0xba6530_0, v0xba6600_0, v0xba66e0_0, v0xba67b0_0, v0xba6970_0, v0xba6ac0_0, v0xba69f0_0;
+    %vpi_call 2 117 "$finish";
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "ej3TestBench.v";
+    "./mux2.v";
+    "./mux4.v";
+    "./decoder.v";

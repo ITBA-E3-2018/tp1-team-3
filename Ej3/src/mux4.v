@@ -1,4 +1,4 @@
-`include "mux2.v"
+//`include "mux2.v"
 
 //Tabla de verdad MUX
 //input -> S0,S1,X0 a X3
