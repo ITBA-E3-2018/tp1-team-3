@@ -1,0 +1,57 @@
+README:
+
+ALU 4 BITS
+
+Registros de entrada: A y B
+Resultado: R
+Condition code register (CCR) con 4 flags:
+*C (carry)
+*V (overflow)
+*N (negative)
+*Z (zero)
+
+Tiene 8 operaciones que se listan a continuacion encabezadas por su opcode:
+
+1-suma
+2-resta
+3-and
+4-or
+5-not
+6-xor
+7-complemento a 2
+8-shift left
+
+Parametros de entrada:
++A=_
++B=_
++opcode=_
+
+
+//SUM: suma de dos numeros
+
+//A y B: entradas (op_size bits)
+//R: resultado (op_size bits)
+//CCR: condition code registers
+
+//R=A+B
+
+//CCR con 4 flags:
+
+//C: carry flag. 
+//   =1 si hubo carry en el MSB.
+//   =0 si no hubo carry en el MSB.
+
+//V: overflow flag. 
+//   =1 si la suma de dos numeros negativos es positiva.
+//   =0 si la suma de dos numeros negativos es positiva.
+//   (con interpretacion signada)
+
+//N: negative flag. 
+//   =1 si el MSB de R es 1 (es decir, si en interpretacion signada, R<0).
+//   =0 si el MSB de R es 0 (es decir, si en interpretacion signada, R>=0).
+
+//Z: zero flag
+//   =1 si R==0.
+//   =1 si R!=0.
+
+//5 ticks: 1 tick calculo, 4ticks CCR
