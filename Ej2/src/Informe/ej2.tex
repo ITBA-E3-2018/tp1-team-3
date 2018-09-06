@@ -44,29 +44,8 @@
 	 	%primera simplificación - Combining 14.b
 	 		Agrupando a los maxtérminos anteriores de a dos y en orden, aplicando la propiedad 14.b del álgebra de Boole de la página del 				libro ''Fundamentals of Digital Logic with Verilog Design'' propuesto por la cátedra, la expresión queda simplificada a: \par
 	 		f =$ (d+c+b)\cdot (d+\overline{c}+\overline{a})\cdot (\overline{d}+c+a)\cdot (\overline{d}+\overline{c}+\overline{b})$\par
-			Luego, aplicando los siguientes cambios de variable y la propiedad 17.a del libro:
-	 			\begin{equation}
-  		  	\left\{
-	  			\begin{array}{ll}
-		 					\mathrm{y} = \mathrm{c + b} \\
-					 		\mathrm{z} = \mathrm{\overline{c} + \overline{a}} \\
-		 					\mathrm{y^{'}} = \mathrm{c + a} \\
-					 		\mathrm{z^{'}} = \mathrm{\overline{c} + \overline{b}} \\			 		
-	  		  \end{array}
-	 		   \right.
- 				\end{equation}
- 			f =$ (d + y\cdot z)\cdot (\overline{d} + y^{'}\cdot z^{'})$ \par
-			Aplicamos propiedad distributiva y de nuevo la propiedad 17.a para llegar a:
-			\par
-			f =$ d\cdot y^{'}\cdot z^{'} + \overline{d}\cdot y\cdot z + y^{'}\cdot z^{'}\cdot y\cdot z$
-			\par
-			f =$ d\cdot y^{'}\cdot z^{'} + \overline{d}\cdot y\cdot z$
-			\par
-			Volviendo a las variables originales: \par
-	
-			f =$ a\cdot d\cdot ()+ \overline{a}\overline{d}\cdot(c + b) + d\cdot c \cdot \overline{b} + 
-			\overline{d}\cdot \overline{c} \cdot b$\par
-			que resulta ser la mínima expresión de f. \par
+			
+			Esta resulta ser la mínima expresión de f. \par
 
 			
 	%simplifación por álgebra booleana:
@@ -76,32 +55,43 @@
 				\centering
  				\begin{tabular}{||c c c c c||} 
  					\hline
-					$c$,$d$|$a$, $b$ & 00 & 01 & 11 & 10\\ [0.5ex] 
+					$b$,$a$|$d$, $c$ & 00 & 01 & 11 & 10\\ [0.5ex] 
  					\hline\hline
-					00 & $M_{0}$ & $M_{2}$ & $M_{3}$ & $M_{1}$\\
-					01 & $M_{8}$ & $M_{10}$ & $M_{11}$ & $M_{9}$\\
-					11 & $M_{12}$ & $M_{14}$ & $M_{15}$ & $M_{13}$\\
-					10 & $M_{4}$ & $M_{6}$ & $M_{7}$ & $M_{5}$\\[1ex] 
+					00 & $M_{0}$ & $M_{4}$ & $M_{12}$ & $M_{8}$\\
+					01 & $M_{1}$ & $M_{5}$ & $M_{13}$ & $M_{9}$\\
+					11 & $M_{3}$ & $M_{7}$ & $M_{15}$ & $M_{11}$\\
+					10 & $M_{2}$ & $M_{6}$ & $M_{14}$ & $M_{10}$\\[1ex] 
 					\hline
 				\end{tabular}
 			\end{table}
 			\begin{itemize}
 				\item $f$
-				\begin{table}[H] %Karnaugh generalizado para f en específico
-					\centering
- 					\begin{tabular}{||c c c c c||} 
- 						\hline
-						$c$,$d$|$a$, $b$ & 00 & 01 & 11 & 10\\ [0.5ex] 
- 						\hline\hline
-						00 & 0 & 1 & 1 & 0 \\
-						01 & 0 & 0 & 1 & 1 \\
-						11 & 1 & 0 & 0 & 1 \\
-						10 & 1 & 1 & 0 & 0 \\[1ex] 
-						\hline
-					\end{tabular}
-				\end{table}
+					\begin{figure}[H]	%Circuito
+						\centering
+						\includegraphics[scale=0.4]{imagenes/karnaugh_ej4.png}
+						\caption{Mapa de karnaugh para maxtérminos}
+						\label{fig:ej4_karnaugh_ej4}
+					\end{figure}
+				De este mapa se puede obtener: \par
+				$f$ = $(c + b + a) \cdot 
+									(d + b + \overline{a}) \cdot 
+									(\overline{c} + \overline{b} + \overline{a}) \cdot 
+									(\overline{d} + \overline{b} + a) $ \par
+			Que resulta ser la expresión equivalente de la obtenida con álgebra de boole (la función f es simétrica).
 			\end{itemize}
+			%dibujamos el circuito
+			\item Obtenemos el circuito resultante a partir de la simplificación: \par
+			\begin{figure}[H]	%Circuito
+				\centering
+				\includegraphics[scale=1]{imagenes/logic_circuit_ej4.png}
+				\caption{Circuito lógico resultante}
+				\label{fig:ej4_logic_circuit_ej4}
+			\end{figure}
+			%obtenemos el circuito solo con NOR
+			\item Obtenemos el mismo circuito a partir de compuertas NOR: \par
+			
 	 \end{enumerate}
+	 
 \end{document}
 
 

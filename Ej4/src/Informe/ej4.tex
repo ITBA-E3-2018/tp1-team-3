@@ -1,7 +1,7 @@
 \documentclass[../../informe/src/main.tex]{subfiles}
 
 \begin{document}
-
+\section{Ejercicio 4}
 Se desea realizar un circuito que convierta un número binario de 4 bits en su complemento a dos.
 
 %empiezo a enumerar subítems de consigna.
@@ -84,7 +84,7 @@ Los siguientes mapas aparecerán con los valores de sus mintérminos reemplazado
 
 \begin{figure}[H]	%Karnaugh para y_3, imagen/tabla
 	\centering
-	\includegraphics[scale=0.5]{imagenes/karnaugh_mapa_y3.png}
+	\includegraphics[scale=0.4]{imagenes/karnaugh_mapa_y3.png}
 	\caption{Mapa de Karnaugh para $y_3$}
 	\label{fig:ej4_karnaugh_mapa_y3}
 \end{figure}
@@ -93,14 +93,14 @@ Los siguientes mapas aparecerán con los valores de sus mintérminos reemplazado
 De este mapa se puede obtener $y_3$ = $\overline{b_{3}} \cdot b_{2} +\overline{b_{3}}\cdot b_{1} 
 +\overline{b_{3}} \cdot b_{0} +b_{3}\cdot \overline{b_{2} \cdot b_{1} \cdot b_{0}} $ 
 \par
-Así, $y_3$ = $\overline{b_{3}} \cdot (b_{2} + b_{1} + b_{0}) + b_{3}\cdot \overline{b_{2} \cdot b_{1} \cdot b_{0}}$ 
+Así, $y_3$ = $\overline{b_{3}} \cdot (b_{2} + b_{1} + b_{0}) + b_{3}\cdot \overline{b_{2}} \cdot \overline{b_{1}} \cdot \overline{b_{0}}$ 
 
 %y_2
 \item $y_2$					
 
 \begin{figure}[H]	%Karnaugh para y_2, imagen/tabla
 	\centering
-	\includegraphics[scale=0.5]{imagenes/karnaugh_mapa_y2.png}
+	\includegraphics[scale=0.4]{imagenes/karnaugh_mapa_y2.png}
 	\caption{Mapa de Karnaugh para $y_2$}
 	\label{fig:ej4_karnaugh_mapa_y2}
 \end{figure}
@@ -109,14 +109,14 @@ Así, $y_3$ = $\overline{b_{3}} \cdot (b_{2} + b_{1} + b_{0}) + b_{3}\cdot \over
 De este mapa se puede obtener $y_2$ = $\overline{b_{2}} \cdot b_{1} + \overline{b_{2}} \cdot b_{0} + 
 b_{2} \cdot \overline{b_{1}} \cdot \overline{b_{0}}  $ 
 \par
-Así, $y_2$ = $\overline{b_{2}} \cdot (b_{1} + b_{0}) + b_{3} + b_{2} \cdot \overline{b_{1}} \cdot \overline{b_{0}} $ 
+Así, $y_2$ = $\overline{b_{2}} \cdot (b_{1} + b_{0}) + b_{2} \cdot \overline{b_{1}} \cdot \overline{b_{0}} $ 
 
 %y_1
 \item $y_1$					
 
 \begin{figure}[H]	%Karnaugh para y_1, imagen/tabla
 	\centering
-	\includegraphics[scale=0.5]{imagenes/karnaugh_mapa_y1.png}
+	\includegraphics[scale=0.4]{imagenes/karnaugh_mapa_y1.png}
 	\caption{Mapa de Karnaugh para $y_1$}
 	\label{fig:ej4_karnaugh_mapa_y1}
 \end{figure}
@@ -132,7 +132,7 @@ Así, $y_1$ resulta ser la xor entre $b_{1}$ y $b_{0}$.
 
 \begin{figure}[H]	%Karnaugh para y_0, imagen/tabla
 	\centering
-	\includegraphics[scale=0.5]{imagenes/karnaugh_mapa_y0.png}
+	\includegraphics[scale=0.4]{imagenes/karnaugh_mapa_y0.png}
 	\caption{Mapa de Karnaugh para $y_0$}
 	\label{fig:ej4_karnaugh_mapa_y0}
 \end{figure}
@@ -140,9 +140,19 @@ Así, $y_1$ resulta ser la xor entre $b_{1}$ y $b_{0}$.
 %escribo simplificación resultante y_0
 De este mapa se puede obtener $y_0$ = $b_{0} $ 
 \par
-Así, el bit menos significativo de la entrada resulta ser el bit menos significativo de la salida (conexión directa).
+Así, el bit menos significativo de la entrada resulta ser el bit menos significativo de la salida (conexión directa).\par
 
 \end{itemize} 
+
+%circuito gráfico
+El circuito que deriva de las relaciones anteriores es:
+
+\begin{figure}[H]	%Circuito resultante
+	\centering
+	\includegraphics[scale=0.8]{imagenes/circuito_ej4.png}
+	\caption{Circuito resultante}
+	\label{fig:ej4_circuito_ej4}
+\end{figure}
 
 \end{enumerate}
  	
