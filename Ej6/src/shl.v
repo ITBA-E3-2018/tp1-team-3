@@ -84,6 +84,7 @@ always @(A)
 
 endmodule
 
+/*
 module shl_tst;
 reg dummy;
 
@@ -104,3 +105,4 @@ $finish;
 end
 
 endmodule
+*/

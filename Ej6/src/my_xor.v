@@ -67,6 +67,7 @@ always @(A,B)
 
 endmodule
 
+/*
 module my_xor_tst;
 reg dummy;
 
@@ -89,3 +90,4 @@ $finish;
 end
 
 endmodule
+*/

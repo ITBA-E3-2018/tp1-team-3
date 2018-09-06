@@ -93,6 +93,7 @@ always @(A)
 
 endmodule
 
+/*
 module ca2_tst;
 reg dummy;
 
@@ -113,3 +114,4 @@ $finish;
 end
 
 endmodule
+*/

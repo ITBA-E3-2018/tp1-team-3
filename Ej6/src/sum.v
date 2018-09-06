@@ -97,7 +97,7 @@ always @(A,B)
 
 endmodule
 
-
+/*
 module sum_tst;
 reg dummy;
 
@@ -120,3 +120,4 @@ $finish;
 end
 
 endmodule
+*/

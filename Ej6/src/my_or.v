@@ -66,6 +66,7 @@ always @(A,B)
 
 endmodule
 
+/*
 module my_or_tst;
 reg dummy;
 
@@ -88,3 +89,4 @@ $finish;
 end
 
 endmodule
+*/

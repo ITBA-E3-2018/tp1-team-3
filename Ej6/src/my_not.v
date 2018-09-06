@@ -29,16 +29,16 @@ module my_not(R, CCR, A);
 parameter op_size = 4;
 parameter c_mask='b1000, v_mask='b0100, n_mask='b0010, z_mask='b0001;   //mascaras para los flags del ccr
 
-
-output reg [3:0] CCR;           //condition code register
-output reg [op_size-1:0] R;     //resultado
-input[op_size-1:0] A;           //input
+output reg [3:0] R, CCR;     //resultado
+input[3:0] A;           //input
 
 always @(A) 
     begin
     //seteo resultado
     R = ~A;
-    #1
+    
+
+#1
 
     //seteo negative
     if( R[op_size - 1] )
@@ -61,11 +61,9 @@ always @(A)
         CCR <= (CCR & (~z_mask));
         //$display("Z=0");
         end
-
-    end
-
+end
 endmodule
-
+/*
 module my_not_tst;
 reg dummy;
 
@@ -86,3 +84,4 @@ $finish;
 end
 
 endmodule
+*/

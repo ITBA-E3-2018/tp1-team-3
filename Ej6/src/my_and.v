@@ -29,7 +29,6 @@ module my_and(R, CCR, A, B);
 parameter op_size = 4;
 parameter c_mask='b1000, v_mask='b0100, n_mask='b0010, z_mask='b0001;   //mascaras para los flags del ccr
 
-
 output reg [3:0] CCR;           //condition code register
 output reg [op_size-1:0] R;     //resultado
 input[op_size-1:0] A, B;        //input
@@ -38,16 +37,14 @@ always @(A,B)
     begin
     //seteo resultado
     R = A&B;
-    #1
+    
 
     //seteo negative
     if( R[op_size - 1] )
         begin
         CCR <= (CCR | n_mask);
-        //$display("N=1");
     end else begin 
         CCR <= (CCR & (~n_mask));
-        //$display("N=0");
         end
     #1
 
@@ -61,11 +58,10 @@ always @(A,B)
         CCR <= (CCR & (~z_mask));
         //$display("Z=0");
         end
-
     end
-
 endmodule
 
+/*
 module my_and_tst;
 reg dummy;
 
@@ -88,3 +84,4 @@ $finish;
 end
 
 endmodule
+*/

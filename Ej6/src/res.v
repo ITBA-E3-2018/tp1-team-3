@@ -1,20 +1,12 @@
-//CA2: complemento a 2
+//RES: resta
 
 //A: registro de entrada (op_size bits)
 //R: resultado (op_size bits)
 //CCR: condition code registers
 
-//R=-A
+//R=A-B
 
-//CCR con 4 flags:
-
-//C: carry flag. 
-//   =1 si al hacer 0-A hay borrow en el MSB(es decir, si A!=0).
-//   =0 si al hacer 0-A no hay borrow en el MSB (es decir, si A==0).
-
-//V: overflow flag. 
-//   =1 si al hacer 0-A hay overflow (es decir, si A==R y A!= 0).
-//   =0 si al hacer 0-A no hay overflow (es decir, si A!=R o si A==0).
+//CCR con 2 flags:
 
 //N: negative flag. 
 //   =1 si el MSB de R es 1 (es decir, si en interpretacion signada, R<0).
@@ -24,9 +16,9 @@
 //   =1 si R==0.
 //   =1 si R!=0.
 
-//5 ticks: 1 tick calculo, 4 ticks CCR
+//3 ticks: 1 tick calculo, 4 ticks CCR
 
-module ca2(R, CCR, A);
+module res(R, CCR, A, B);
 
 parameter op_size = 4;
 parameter c_mask='b1000, v_mask='b0100, n_mask='b0010, z_mask='b0001;   //mascaras para los flags del ccr
@@ -34,38 +26,15 @@ parameter c_mask='b1000, v_mask='b0100, n_mask='b0010, z_mask='b0001;   //mascar
 
 output reg [3:0] CCR;           //condition code register
 output reg [op_size-1:0] R;     //resultado
-input[op_size-1:0] A;           //input
+input[op_size-1:0] A, B;           //input
 
 always @(A) 
     begin
     CCR=0;
     //seteo resultado
-    R = -A;
+    R = A-B;
     #1
 
-    //seteo carry flag
-    if(A)
-        begin
-        CCR <= (CCR | c_mask);
-        //$display("C=1");
-    end else begin 
-        CCR <= (CCR & ~c_mask);
-        //$display("C=0");
-        end    
-    #1
-
-
-    //seteo overflow flag
-    if(A==R && A!=0)
-        begin 
-        CCR <= (CCR | v_mask);
-        //$display("V=1"); 
-    end else begin
-        CCR <= (CCR & (~v_mask));
-        //$display("V=0");
-        end
-        
-    #1
 
 
     //seteo negative
@@ -94,19 +63,21 @@ always @(A)
 
 endmodule
 
-module ca2_tst;
+/*
+module res_tst;
 reg dummy;
 
 wire [3:0] R, CCR;  //resultado y condition code register
-reg [3:0] A;        //input del ca2
+reg [3:0] A, B;        //input del res
 
 
-ca2 tst_ca2(R, CCR, A);
+res tst_res(R, CCR, A, B);
 initial begin
 dummy = $value$plusargs("A=%d", A);
 #5 //ca2 tarda 1 tick en hacer la suma y 4 ticks en acomodar el ccr
-$display(" A=%b", A);
-$display("-A=%b",R);
+$display("A=%b", A);
+$display("B=%d", A);
+$display("A-B=%b",R);
 $display("CVNZ");
 $display("%b", CCR);
 
@@ -114,3 +85,4 @@ $finish;
 end
 
 endmodule
+*/
