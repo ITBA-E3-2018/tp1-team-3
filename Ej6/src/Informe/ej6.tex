@@ -1,6 +1,36 @@
-\documentclass[../../main.tex]{subfiles}
-
+\documentclass[../../../informe/src/main.tex]{subfiles}
 \begin{document}
 \section{Ejercicio 6}
+
+Se diseño una ALU de la siguiente manera:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{imagenes/alu.png}
+\caption{Implementasión Alu 4 bits} \label{fig=alu}
+\end{figure}
+ A y B son los registros de entrada, y para seleccionar cada operacion se deve poner el bit en uno de cada mux.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+&A$->$B & CIN &noB$->$B  &  A en la suma & AXor B$->$B & Aor B$->$B &Aand B$->$B\\
+\hline \hline
+ Suma& 0 & 0 & 0 & 1 & 0&0 &0 \\ \hline
+Resta& 0 & 1 & 0 & 1 & 0&0 &0 \\ \hline
+ And& 0 & 0 & 0 & 0 & 0&0 &1 \\ \hline
+ Or& 0 & 0 & 0 & 0 & 0&1 &0 \\ \hline
+ Not& 0 & 0 & 1 & 0 & 0&0 &0 \\ \hline
+ Xor& 0 & 0 & 0 & 0 & 1&0 &0 \\ \hline
+ Ca2& 0 & 1 & 1& 0& 0&0 &0 \\ \hline
+Shl& 1 & 0 & 0 & 1 & 0&0 &0 \\ \hline
+
+\end{tabular}
+\caption{Tabla de seleccion de operacion} 
+\label{tab=alu op}
+\end{center}
+\end{table}
+
+
 
 \end{document}
